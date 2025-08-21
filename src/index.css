@@ -39,7 +39,7 @@ body {
 .title {
   width: 100%; /* Or any other fixed width */
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 h1 {
   font-size: 3.2em;

@@ -67,5 +67,15 @@ export default function ScrambleTypewriter({
     };
   }, [text, speed, scrambleSpeed, scrambleLength]);
 
-  return <span>{displayed}</span>;
+  return (
+    <span
+      style={{
+        display: "inline-block",
+        minWidth: `${text.length}ch`,
+        textAlign: "left",
+      }}
+    >
+      {displayed}
+    </span>
+  );
 }
