@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-do
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
 import Scryntax from "./pages/Scryntax";
-import '../src/globals.css'
+import '../src/index.css'; // Import your CSS styles
 export default function App() {
   return (
     <div className="bg-black text-green-400 min-h-screen font-mono">
