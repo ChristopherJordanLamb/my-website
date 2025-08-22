@@ -2,14 +2,15 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-do
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
 import Scryntax from "./pages/Scryntax";
-import '../src/index.css'; // Import your CSS styles
+import '../src/index.css';
+
 export default function App() {
   return (
-    <div className="bg-black text-green-400 min-h-screen font-mono">
+    <div className="bg-black text-green-400 min-h-screen font-mono w-full overflow-x-hidden">
       <BrowserRouter>
-        <nav className="p-4 border-b border-green-500 flex gap-6">
-          <Link className="hover:text-green-200 transition" to="/">[ HOME ]</Link>
-          <Link className="hover:text-green-200 transition" to="/Scryntax">[ SCRYNTAX ]</Link>
+        <nav className="p-2 sm:p-4 lg:p-6 border-b border-green-500 flex flex-col sm:flex-row gap-2 sm:gap-4 lg:gap-6">
+          <Link className="hover:text-green-200 transition text-sm sm:text-base lg:text-lg" to="/">[ HOME ]</Link>
+          <Link className="hover:text-green-200 transition text-sm sm:text-base lg:text-lg" to="/Scryntax">[ SCRYNTAX ]</Link>
         </nav>
         <AnimatedRoutes />
       </BrowserRouter>
@@ -21,9 +22,7 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    // AnimatePresence must have exitBeforeEnter (or mode="wait") for page transitions
     <AnimatePresence mode="wait">
-      {/* key={location.pathname} ensures a new motion div is mounted on each route */}
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
         <Route path="/Scryntax" element={<PageWrapper><Scryntax /></PageWrapper>} />
@@ -31,15 +30,11 @@ function AnimatedRoutes() {
     </AnimatePresence>
   );
 }
-function PageWrapper({ children }: { children: React.ReactNode }) {
+
+function PageWrapper({ children }) {
   return (
     <motion.div
-      // initial={{ opacity: 0, y: 20 }}
-      // animate={{ opacity: 1, y: 0 }}
-      // exit={{ opacity: 0, y: -20 }} 
-      // transition={{ duration: 0.4 }}
-      className="p-6 flex flex-col items-center"
-      
+      className="p-2 sm:p-4 lg:p-6 flex flex-col items-center w-full"
     >
       {children}
     </motion.div>
